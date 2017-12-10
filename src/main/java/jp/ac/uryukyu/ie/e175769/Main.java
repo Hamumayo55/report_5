@@ -1,7 +1,7 @@
 package jp.ac.uryukyu.ie.e175769;
 
 /**
- * Created by tnal on 2016/11/13.
+ * Created by e175769 on 2017/12/5.
  */
 public class Main {
     public static void main(String[] args){

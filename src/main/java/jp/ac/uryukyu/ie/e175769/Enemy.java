@@ -6,7 +6,7 @@ package jp.ac.uryukyu.ie.e175769;
  *  int hitPoint; //敵のHP
  *  int attack; //敵の攻撃力
  *  boolean dead; //敵の生死状態。true=死亡。
- * Created by tnal on 2016/11/13.
+ * Created by e175769 on 2017/12/5.
  */
 public class Enemy extends LivingThing {
     public Enemy (String name, int maximumHP, int attack) {
@@ -18,6 +18,23 @@ public class Enemy extends LivingThing {
         if( getHitPoint() <= 0 ) {
             setDead(true);
             System.out.printf("モンスター%sは倒れた。\n", getName());
+        }
+    }
+
+    @Override
+    public void attack(LivingThing opponent){
+        if( getDead() == false ) {
+            int damage = (int) (Math.random() * getAttack());
+            int n = (int)Math.random()*100;
+            if(damage == 0){
+                System.out.printf("%sの攻撃！,,,だが、%sは攻撃を回避した！\n", getName(), opponent.getName());
+            }else if(n <= 30){
+                damage *= 2;
+                System.out.printf("%sの攻撃！痛恨の一撃！！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+            }else{
+                System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+            }
+            opponent.wounded(damage);
         }
     }
 }
