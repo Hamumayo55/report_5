@@ -5,6 +5,7 @@ public class LivingThing {
     private int hitPoint;
     private int attack;
     private boolean dead;
+    private int random;
     public LivingThing(String name,int hitPoint,int attack){
         this.name = name;
         this.hitPoint = hitPoint;
@@ -29,6 +30,13 @@ public class LivingThing {
         return name;
     }
 
+    public int getRandom(){
+        return random = (int) (Math.random()*100);
+    }
+
+    public void setRandom(int random){
+        this.random = random;
+    }
     /**
      * Heroへ攻撃するメソッド。
      * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
